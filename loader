@@ -2,7 +2,7 @@ if not getgenv then
     function getgenv() return _G end
 end
 local UniverseId = game.GameId
-local try = pcall(function() loadstring(game:HttpGet("https://raw.githubusercontent.com/dunnook/RiceHub/refs/heads/main/"..GameName))() end)
+local try = pcall(function() loadstring(game:HttpGet("https://raw.githubusercontent.com/dunnook/RiceHub/refs/heads/main/"..tostring(UniverseId)))() end)
 if try then
     print("Game is not supported by rice hub")
 end
