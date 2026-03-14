@@ -2,18 +2,7 @@ if not getgenv then
     function getgenv() return _G end
 end
 local UniverseId = game.GameId
-local GameName = ""
-if UniverseId == 7326934954 then
-    GameName = "99nights"
-elseif UniverseId == 9051406594 then
-    GameName = "duellinggrounds"
-elseif UniverseId == 7028566528 then
-    GameName = "basketballzero"
-elseif UniverseId == 3293514480 then
-    GameName = "marvelloussmackdown"
-end
-if GameName then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/dunnook/RiceHub/refs/heads/main/"..GameName))()
-else
+local try = pcall(function() loadstring(game:HttpGet("https://raw.githubusercontent.com/dunnook/RiceHub/refs/heads/main/"..GameName))() end)
+if try then
     print("Game is not supported by rice hub")
 end
