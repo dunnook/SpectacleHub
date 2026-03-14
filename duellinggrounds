@@ -1,1 +1,2 @@
+--duellinggrounds
 loadstring(game:HttpGet("https://pandadevelopment.net/virtual/file/c087408651486ff2"))()
