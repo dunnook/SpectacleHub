@@ -1501,48 +1501,46 @@ local ae=gethwid or function()return aa(game:GetService"Players").LocalPlayer.Us
 local af,ag=request or http_request or syn_request,setclipboard or toclipboard
 
 function ValidateKey(ah)
-local ai="https://pandadevelopment.net/v2_validation?key="..tostring(ah).."&service="..tostring(ad).."&hwid="..tostring(ae())
+    local ai = "https://new.pandadevelopment.net/api/v1/keys/validate"
 
-
-local aj,ak=pcall(function()
-return af{
-Url=ai,
-Method="GET",
-Headers={["User-Agent"]="Roblox/Exploit"}
-}
-end)
-
-if aj and ak then
-if ak.Success then
-local al,am=pcall(function()
-return ab:JSONDecode(ak.Body)
-end)
-
-if al and am then
-if am.V2_Authentication and am.V2_Authentication=="success"then
-
-return true,"Authenticated"
-else
-local an=am.Key_Information.Notes or"Unknown reason"
-
-return false,"Authentication failed: "..an
-end
-else
-
-return false,"JSON decode error"
-end
-else
-warn("[Pelinda Ov2.5] HTTP request was not successful. Code: "..tostring(ak.StatusCode).." Message: "..ak.StatusMessage)
-return false,"HTTP request failed: "..ak.StatusMessage
-end
-else
-
-return false,"Request pcall error"
-end
+    local aj,ak=pcall(function()    
+        return af{
+        Url=ai,
+        Method="POST",
+        Headers={["Content-Type"]="application/json"},
+        Body = ab:JSONEncode({
+            ServiceID = tostring(ad),
+            HWID = tostring(ae()),
+            Key = tostring(ah)
+        })
+    }
+    end)
+    if aj and ak then
+        if ak.Success then
+            local al,am=pcall(function()
+                return ab:JSONDecode(ak.Body)
+            end)
+            if al and am then
+                if am.Authenticated_Status and am.Authenticated_Status=="Success"then
+                    return true,"Authenticated"
+                else
+                    local an=am.Note or"Unknown reason"
+                    return false,"Authentication failed: "..an
+                end
+            else
+                return false,"JSON decode error"
+            end
+        else
+            warn("[Pelinda Ov2.5] HTTP request was not successful. Code: "..tostring(ak.StatusCode).." Message: "..ak.StatusMessage)
+            return false,"HTTP request failed: "..ak.StatusMessage
+        end
+    else
+        return false,"Request pcall error"
+    end
 end
 
 function GetKeyLink()
-return"https://new.pandadevelopment.net/getkey/"..tostring(ad).."?hwid="..tostring(ae())
+return"https://pandadevelopment.net/getkey?service="..tostring(ad).."&hwid="..tostring(ae())
 end
 
 function CopyLink()
