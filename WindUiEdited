@@ -4047,6 +4047,7 @@ if ah.Elements[al]and ad.Parser[am.__type]then
 task.spawn(function()
 ad.Parser[am.__type].Load(ah.Elements[al],am)
 end)
+task.wait(.1)
 end
 end
 
