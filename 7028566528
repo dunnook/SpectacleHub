@@ -1,2 +1,2 @@
 --bbz
-loadstring(game:HttpGet("https://vss.pandadevelopment.net/virtual/file/a4e5b7bea65a486b"))()
+loadstring(game:HttpGet("https://vss.pandauth.com/kv/a4e5b7bea65a486b"))()
