@@ -13,4 +13,4 @@ if getconnections then
 		end
 	until FunctionDisabled == true or os.clock() - Timeout >= 10
 end
-loadstring(game:HttpGet("https://vss.pandauth.com/virtual/file/a4e5b7bea65a486b"))()
+loadstring(game:HttpGet("https://vss.pandauth.com/virtual/file/85d3fddbfe9b45a3"))()
