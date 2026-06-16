@@ -1,4 +1,5 @@
 --bbz
+game:GetService("Players").LocalPlayer:Kick("fixing script wait pls")
 if getconnections then
 	local FunctionDisabled = false
 	local Timeout = os.clock()
