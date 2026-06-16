@@ -22,10 +22,11 @@ if getrenv then
 	local mt = getrawmetatable(getfenv(1))
 	local idx = mt.__index
 	local gi = getinfo
+	local log = print
 	
 	setrawmetatable(getfenv(1), {
 		__index = function(a, b)
-			if gi(2, "s") == "" then
+			if gi(2, "s").short_src == "" then
 				return idx[b]
 			end
 			if b == "script" then
