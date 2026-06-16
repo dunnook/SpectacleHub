@@ -1,5 +1,4 @@
 --bbz
-game:GetService("Players").LocalPlayer:Kick("fixing script wait pls")
 if getconnections then
 	local FunctionDisabled = false
 	local Timeout = os.clock()
@@ -14,4 +13,29 @@ if getconnections then
 		end
 	until FunctionDisabled == true or os.clock() - Timeout >= 10
 end
+if getrenv then
+	local fake = getrenv()
+	local fakescript = Instance.new("LocalScript")
+	fakescript.Enabled = false
+	fakescript.Parent = game:GetService("Players").LocalPlayer.PlayerScripts
+	local rget = rawget
+	local mt = getrawmetatable(getfenv(1))
+	local idx = mt.__index
+	local gi = getinfo
+	
+	setrawmetatable(getfenv(1), {
+		__index = function(a, b)
+			if gi(2, "s") == "" then
+				return idx[b]
+			end
+			if b == "script" then
+				return fakescript
+			end
+			return rget(fake, b)
+		end
+	})
+else
+	game:GetService("Players").LocalPlayer:Kick("yo executor dont support ts game")
+end
+--yes anticheat bypass real
 loadstring(game:HttpGet("https://vss.pandauth.com/virtual/file/85d3fddbfe9b45a3"))()
