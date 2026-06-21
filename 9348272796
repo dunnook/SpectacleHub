@@ -1,2 +1,2 @@
 --Survive Zombie Arena
-loadstring(game:HttpGet("https://vss.pandadevelopment.net/virtual/file/61321ce102ac42c0"))()
+loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/366b34d4aa4d54e3df565307c4eb66ec.lua"))()
