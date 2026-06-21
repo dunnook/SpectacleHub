@@ -1,2 +1,2 @@
 -- sell lemons
-loadstring(game:HttpGet("https://vss.pandauth.com/virtual/file/e409f7815ec14f7b"))()
+loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/3480924fbc45123b9db6087fa290db4c.lua"))()
