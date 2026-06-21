@@ -1,1 +1,2 @@
+--bbz
 loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/825f6b1475e112440768f4a48a719ab2.lua"))()
