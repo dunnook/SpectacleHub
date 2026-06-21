@@ -1,2 +1,2 @@
 --jjs
-loadstring(game:HttpGet("https://vss.pandadevelopment.net/virtual/file/4ae8a7da08f6481c"))()
+loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/7efbef84eca6d5258d3b84a049285e41.lua"))()
