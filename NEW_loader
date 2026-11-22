@@ -5,7 +5,12 @@ return function(SERVICE, KEY)
     getgenv().script_key = KEY
     local UniverseId = game.GameId
     local ServiceString = SERVICE ~= nil and "_"..tostring(SERVICE) or ""
-    local try, err = pcall(function()loadstring(game:HttpGet("https://raw.githubusercontent.com/dunnook/SpectacleHub/refs/heads/main/"..tostring(UniverseId)..ServiceString))() end)
+    local try, err
+    if SERVICE == "JNKIE" then
+        try, err = pcall(function() return loadstring(game:HttpGet("https://raw.githubusercontent.com/dunnook/SpectacleHub/refs/heads/main/JNKIE"))() end)
+    else
+        try, err = pcall(function() return loadstring(game:HttpGet("https://raw.githubusercontent.com/dunnook/SpectacleHub/refs/heads/main/"..tostring(UniverseId)..ServiceString))() end)
+    end
     if try then
         print(err)
     end
